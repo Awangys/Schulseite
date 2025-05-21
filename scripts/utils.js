@@ -31,7 +31,6 @@ export async function imageCycle(img, target) {
 
     while (pageState === "layout") {
         img.src = `./data/${target}/${index}.jpg`;
-        img.innerText = index
         if (index + 1 > length) index = 1;
         else index++;
 
