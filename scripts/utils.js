@@ -31,10 +31,11 @@ export async function imageCycle(img, target) {
 
     while (pageState === "layout") {
         img.src = `./data/${target}/${index}.jpg`;
+        img.innerText = index
         if (index + 1 > length) index = 1;
         else index++;
 
-        const check = await checkPageState(50, 100);
+        const check = await checkPageState(75, 100);
         if (check === null) forceCycle = false;
         if (check) break;
     }
