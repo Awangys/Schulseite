@@ -48,10 +48,15 @@ for (const button of document.getElementsByClassName("link")) {
         background.appendChild(textSpan);
 
         pageState = "layout";
-        
-        const img = document.createElement("img");
+
+        console.log(target)
+        const img = document.createElement(target === "Lego stop motion Film" ? "video" : "img");
+        if (img instanceof HTMLVideoElement) {
+            img.src = "../data/Lego stop motion Film/Film.mp4";
+            img.volume = 0;
+            img.play();
+        } else imageCycle(img, target);
         loadedData.push(img);
-        imageCycle(img, target);
         img.classList.add("cycleImage");
         manage(img, "Fade", "show");
         background.appendChild(img);
@@ -78,7 +83,7 @@ backbutton.addEventListener("click", async (_) => {
         manage(content, "Fade", "show");
         manage(gridContainer, "Fade", "show");
     }
-    await sleep(1000)
+    await sleep(1000);
 
     pageState = "startpage";
 });
